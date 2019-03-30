@@ -33,12 +33,27 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            NumPad(),
-          ],
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/flutter_peru.jpg'),
+            colorFilter: ColorFilter.mode(
+              Colors.black.withOpacity(0.1),
+              BlendMode.dstATop,
+            ),
+          ),
+        ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              //Opacity(
+              //  opacity: 0.2,
+              //  child: Image.asset('assets/images/flutter_peru.jpg'),
+              //),
+              NumPad(),
+            ],
+          ),
         ),
       ),
     );
