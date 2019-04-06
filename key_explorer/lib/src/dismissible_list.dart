@@ -25,14 +25,14 @@ class _DismissibleListState extends State<DismissibleList> {
         return Dismissible(
           key: Key(items[index]),
           onDismissed: (direction) {
+            final item = items[index];
             setState(() {
               items.removeAt(index);
             });
 
             // Show a snackbar! This snackbar could also contain "Undo" actions.
             Scaffold.of(context).showSnackBar(
-              SnackBar(
-                  content: Text("${items[index]} dismissed to $direction")),
+              SnackBar(content: Text("$item dismissed to $direction")),
             );
           },
           background: Container(color: Colors.blue),
