@@ -12,10 +12,8 @@ class StatelessColorfulTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: _color,
-      child: Padding(
-        padding: EdgeInsets.all(50.0),
-        child: Text(text),
-      ),
+      padding: EdgeInsets.all(50.0),
+      child: Text(text),
     );
   }
 }
@@ -42,10 +40,8 @@ class _StatefulColorfulTileState extends State<StatefulColorfulTile> {
   Widget build(BuildContext context) {
     return Container(
       color: color,
-      child: Padding(
-        padding: EdgeInsets.all(50.0),
-        child: Text(widget.text),
-      ),
+      padding: EdgeInsets.all(50.0),
+      child: Text(widget.text),
     );
   }
 }
