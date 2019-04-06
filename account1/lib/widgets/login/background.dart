@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math' show pi, sin;
 
 class Background extends StatelessWidget {
   @override
@@ -129,13 +130,27 @@ class FooterWaveClipper extends CustomClipper<Path> {
   Path getClip(Size size) {
     var control2 = Offset(size.width - (size.width / 6), size.height);
     var end2 = Offset(size.width, 0.0);
-
     return Path()
       ..moveTo(size.width, 0.0)
       ..lineTo(size.width, size.height)
       ..lineTo(0.0, size.height)
       ..lineTo(0.0, size.height - 60)
       ..quadraticBezierTo(control2.dx, control2.dy, end2.dx, end2.dy);
+    //final n = 10;
+    //final amp = 50.0;
+    //final step = 2 * pi / n;
+    //final List<Offset> points = List.generate(n + 1, (i) {
+    //  final dx = i * size.width / n;
+    //  final dy = amp - amp * sin(i * step);
+    //  return Offset(dx, dy);
+    //});
+    //return Path()
+    //  ..moveTo(size.width, amp)
+    //  ..lineTo(size.width, size.height)
+    //  ..lineTo(0, size.height)
+    //  ..lineTo(0, amp)
+    //  ..addPolygon(points, false)
+    //  ..close();
   }
 
   @override
