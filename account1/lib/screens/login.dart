@@ -66,6 +66,10 @@ class LoginScreen extends StatelessWidget {
             Navigator.popAndPushNamed(context, '/sinWave');
           }),
           SizedBox(height: 10),
+          roundedButton("Swapi", signInGradients, () {
+            Navigator.popAndPushNamed(context, '/swapi');
+          }),
+          SizedBox(height: 10),
           roundedButton("Crea una cuenta", signUpGradients, () {
             Navigator.popAndPushNamed(context, '/signUp');
             //Navigator.of(context).popAndPushNamed('signUp');

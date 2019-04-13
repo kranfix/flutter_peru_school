@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'screens/login.dart';
 import 'screens/sign_up.dart';
 import 'screens/sin_wave.dart';
+import 'screens/swapi.dart';
 
 void main() => runApp(MyApp());
 
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
         '/login': (BuildContext context) => LoginScreen(),
         '/signUp': (BuildContext context) => SignUpScreen(),
         '/sinWave': (BuildContext context) => SinWaveScreen(),
+        '/swapi': (BuildContext context) => SwapiScreen(),
       },
     );
   }
