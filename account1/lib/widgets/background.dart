@@ -1,33 +1,40 @@
 import 'package:flutter/material.dart';
-import 'dart:math' show pi, sin;
 
 class Background extends StatelessWidget {
+  Background({this.child});
+  final Widget child;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomPadding: false,
       backgroundColor: Colors.white,
-      body: Column(
+      body: Stack(
         children: <Widget>[
-          Stack(
-            alignment: Alignment.bottomCenter,
+          Column(
             children: <Widget>[
-              Image.asset(
-                'assets/images/flutter_peru.jpg',
-                width: MediaQuery.of(context).size.width * 0.4,
+              Stack(
+                alignment: Alignment.bottomCenter,
+                children: <Widget>[
+                  Image.asset(
+                    'assets/images/flutter_peru.jpg',
+                    width: MediaQuery.of(context).size.width * 0.4,
+                  ),
+                  WavyHeader(),
+                ],
               ),
-              WavyHeader(),
+              Expanded(child: Container()),
+              Stack(
+                alignment: Alignment.bottomLeft,
+                children: <Widget>[
+                  WavyFooter(),
+                  BottomCircle(Offset(-70.0, 90.0), 120, Color(0xFFE92921)),
+                  BottomCircle(Offset(0.0, 210.0), 140, Color(0xFF3DE8D1)),
+                ],
+              )
             ],
           ),
-          Expanded(child: Container()),
-          Stack(
-            alignment: Alignment.bottomLeft,
-            children: <Widget>[
-              WavyFooter(),
-              BottomCircle(Offset(-70.0, 90.0), 120, Color(0xFFE92921)),
-              BottomCircle(Offset(0.0, 210.0), 140, Color(0xFF3DE8D1)),
-            ],
-          )
+          child ?? Container()
         ],
       ),
     );
@@ -101,8 +108,6 @@ class BottomCircle extends StatelessWidget {
 class TopWaveClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
-    // This is where we decide what part of our image is going to be visible.
-    // Control Points and End Points
     final control1 = Offset(size.width / 6, size.height * 6 / 7);
     final end1 = Offset(size.width / 5, size.height * 3 / 5);
 
@@ -112,7 +117,6 @@ class TopWaveClipper extends CustomClipper<Path> {
     final control3 = Offset(size.width * 8 / 9, size.height / 6);
     final end3 = Offset(size.width, 0.0);
 
-    ///move from bottom right to top
     return Path()
       ..lineTo(0.0, size.height)
       ..quadraticBezierTo(control1.dx, control1.dy, end1.dx, end1.dy)
@@ -136,21 +140,6 @@ class FooterWaveClipper extends CustomClipper<Path> {
       ..lineTo(0.0, size.height)
       ..lineTo(0.0, size.height - 60)
       ..quadraticBezierTo(control2.dx, control2.dy, end2.dx, end2.dy);
-    //final n = 10;
-    //final amp = 50.0;
-    //final step = 2 * pi / n;
-    //final List<Offset> points = List.generate(n + 1, (i) {
-    //  final dx = i * size.width / n;
-    //  final dy = amp - amp * sin(i * step);
-    //  return Offset(dx, dy);
-    //});
-    //return Path()
-    //  ..moveTo(size.width, amp)
-    //  ..lineTo(size.width, size.height)
-    //  ..lineTo(0, size.height)
-    //  ..lineTo(0, amp)
-    //  ..addPolygon(points, false)
-    //  ..close();
   }
 
   @override

@@ -1,46 +1,43 @@
 import 'package:flutter/material.dart';
 import '../widgets/login/inputWidget.dart';
-import '../widgets/login/background.dart';
+import '../widgets/background.dart';
 import '../widgets/buttons/raised_gradient_button.dart';
 
 class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: <Widget>[
-        Background(),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            SizedBox(height: MediaQuery.of(context).size.height * 0.4),
-            InputWidget(30.0, 0.0),
-            SizedBox(height: 15),
-            InputWidget(0.0, 30.0),
-            SizedBox(height: 15),
-            InputWidget(30.0, 0.0),
-            SizedBox(height: 15),
-            InputWidget(0.0, 30.0),
-            SizedBox(height: 15),
-            roundedButton("Crea una cuenta", signUpGradients, () {
-              Navigator.popAndPushNamed(context, '/signUp');
-            }),
-            SizedBox(height: 10),
-            RaisedGradientButton(
-              width: 60,
-              child: Icon(
-                Icons.arrow_back,
-                size: 40,
-                color: Colors.white,
-              ),
-              gradient: signInGradients,
-              onTab: () {
-                Navigator.popAndPushNamed(context, '/login');
-              },
-              shape: CircleBorder(),
+    return Background(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: <Widget>[
+          SizedBox(height: MediaQuery.of(context).size.height * 0.4),
+          InputWidget(30.0, 0.0),
+          SizedBox(height: 15),
+          InputWidget(0.0, 30.0),
+          SizedBox(height: 15),
+          InputWidget(30.0, 0.0),
+          SizedBox(height: 15),
+          InputWidget(0.0, 30.0),
+          SizedBox(height: 15),
+          roundedButton("Crea una cuenta", signUpGradients, () {
+            Navigator.popAndPushNamed(context, '/signUp');
+          }),
+          SizedBox(height: 10),
+          RaisedGradientButton(
+            width: 60,
+            child: Icon(
+              Icons.arrow_back,
+              size: 40,
+              color: Colors.white,
             ),
-          ],
-        ),
-      ],
+            gradient: signInGradients,
+            onTab: () {
+              Navigator.popAndPushNamed(context, '/login');
+            },
+            shape: CircleBorder(),
+          ),
+        ],
+      ),
     );
   }
 }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 //import 'package:firebase_core/firebase_core.dart';
 import 'screens/login.dart';
 import 'screens/sign_up.dart';
+import 'screens/sin_wave.dart';
 
 void main() => runApp(MyApp());
 
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
       routes: <String, WidgetBuilder>{
         '/login': (BuildContext context) => LoginScreen(),
         '/signUp': (BuildContext context) => SignUpScreen(),
+        '/sinWave': (BuildContext context) => SinWaveScreen(),
       },
     );
   }
