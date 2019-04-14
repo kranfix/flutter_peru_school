@@ -2,13 +2,13 @@ import 'package:bloc/bloc.dart';
 
 enum CounterActions { increment, decrement, preset }
 
-class CounterState {
+class CounterEvent {
   final CounterActions action;
   final int value;
-  CounterState({this.action, this.value});
+  CounterEvent({this.action, this.value});
 }
 
-class CounterBloc extends Bloc<CounterState, int> {
+class CounterBloc extends Bloc<CounterEvent, int> {
   @override
   int get initialState => 0;
 
@@ -19,7 +19,7 @@ class CounterBloc extends Bloc<CounterState, int> {
   bool get isDecrementerEnable => currentState > min;
 
   @override
-  Stream<int> mapEventToState(CounterState event) async* {
+  Stream<int> mapEventToState(CounterEvent event) async* {
     switch (event.action) {
       case CounterActions.increment:
         if (isIncrementerEnable) {

@@ -28,7 +28,7 @@ class CounterWithSlider extends StatelessWidget {
                 divisions: 10,
                 onChanged: (newValue) {
                   _counterBloc.dispatch(
-                    CounterState(
+                    CounterEvent(
                       action: CounterActions.preset,
                       value: newValue.toInt(),
                     ),

@@ -28,7 +28,7 @@ class CounterWithButtons extends StatelessWidget {
                     onPressed: _counterBloc.isDecrementerEnable
                         ? () {
                             _counterBloc.dispatch(
-                              CounterState(action: CounterActions.decrement),
+                              CounterEvent(action: CounterActions.decrement),
                             );
                           }
                         : null,
@@ -40,7 +40,7 @@ class CounterWithButtons extends StatelessWidget {
                     onPressed: _counterBloc.isIncrementerEnable
                         ? () {
                             _counterBloc.dispatch(
-                              CounterState(action: CounterActions.increment),
+                              CounterEvent(action: CounterActions.increment),
                             );
                           }
                         : null,
